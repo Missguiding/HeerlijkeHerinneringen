@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeerlijkeHerinneringen", "H
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeerlijkeHerinneringen.Data", "HeerlijkeHerinneringen.Data\HeerlijkeHerinneringen.Data.csproj", "{664633E4-2E06-4BC8-9BE7-E87A479EA4C0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeerlijkeHerinneringen.Libraries", "HeerlijkeHerinneringen.Libraries\HeerlijkeHerinneringen.Libraries.csproj", "{D5BE5704-A4B9-4142-A10E-2CA7A3B56C0D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{664633E4-2E06-4BC8-9BE7-E87A479EA4C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{664633E4-2E06-4BC8-9BE7-E87A479EA4C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{664633E4-2E06-4BC8-9BE7-E87A479EA4C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5BE5704-A4B9-4142-A10E-2CA7A3B56C0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5BE5704-A4B9-4142-A10E-2CA7A3B56C0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5BE5704-A4B9-4142-A10E-2CA7A3B56C0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5BE5704-A4B9-4142-A10E-2CA7A3B56C0D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
