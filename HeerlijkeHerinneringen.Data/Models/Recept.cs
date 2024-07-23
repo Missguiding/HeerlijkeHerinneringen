@@ -12,5 +12,13 @@ namespace HeerlijkeHerinneringen.Data.Models
         public string Titel { get; set; }
         public string Beschrijving { get; set; }
         public byte Afbeelding { get; set; }
+        public int IngredientId { get; set; }
+        public Ingrediënt Ingrediënt { get; set; }
+        public int MenuGangId { get; set; }
+        public MenuGang MenuGang { get; set; }  
+        public int TypeGerechtId { get; set; }  
+        public TypeGerecht TypeGerecht { get; set; }
+        public int TemperatuurId { get; set; }
+        public Temperatuur temperatuur { get; set; }
     }
 }
