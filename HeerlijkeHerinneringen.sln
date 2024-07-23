@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34525.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeerlijkeHerinneringen", "HeerlijkeHerinneringen\HeerlijkeHerinneringen.csproj", "{E08E3555-C815-4722-90EF-9CAA9A8828F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeerlijkeHerinneringen.Data", "HeerlijkeHerinneringen.Data\HeerlijkeHerinneringen.Data.csproj", "{664633E4-2E06-4BC8-9BE7-E87A479EA4C0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E08E3555-C815-4722-90EF-9CAA9A8828F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E08E3555-C815-4722-90EF-9CAA9A8828F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E08E3555-C815-4722-90EF-9CAA9A8828F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E08E3555-C815-4722-90EF-9CAA9A8828F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{664633E4-2E06-4BC8-9BE7-E87A479EA4C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{664633E4-2E06-4BC8-9BE7-E87A479EA4C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{664633E4-2E06-4BC8-9BE7-E87A479EA4C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{664633E4-2E06-4BC8-9BE7-E87A479EA4C0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4EB985ED-9203-454D-8FF7-57AAED693C82}
+	EndGlobalSection
+EndGlobal
