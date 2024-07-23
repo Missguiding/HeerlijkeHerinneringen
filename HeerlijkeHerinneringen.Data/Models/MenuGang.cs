@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HeerlijkeHerinneringen.Data.Models
 {
-    internal class MenuGang : BaseEntity
+    public class MenuGang : BaseEntity
     {
         public ICollection<Recept> recepts { get; set; }
     }
