@@ -12,7 +12,10 @@ namespace HeerlijkeHerinneringen.Data.Models
     {
         [Key]
         public int AfbeeldingId { get; set; }
+
         public string AfbeeldingNaam { get; set; }
+
+        public string? AfbeeldingUrl  { get; set; }       
 
         #region ForeignKey-Recept (∞ Afbeelding - 1 Recept)
 
@@ -20,5 +23,6 @@ namespace HeerlijkeHerinneringen.Data.Models
         public int ReceptId { get; set; }
         public Recept Recept { get; set; }
         #endregion
-    }
+    }    
 }
+
