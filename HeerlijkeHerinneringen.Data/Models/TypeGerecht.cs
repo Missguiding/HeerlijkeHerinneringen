@@ -12,7 +12,7 @@ namespace HeerlijkeHerinneringen.Data.Models
     {
         [Key]
         public int TypeGerechtId { get; set; }
-        public string TypeGerechtName { get; set; }
+        public string? TypeGerechtName { get; set; }
 
         #region List (∞ Recept - 1 TypeGerecht)
         public ICollection<Recept> Recepts { get; set; }

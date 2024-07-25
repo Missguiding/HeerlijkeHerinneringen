@@ -13,7 +13,7 @@ namespace HeerlijkeHerinneringen.Data.Models
         [Key]
         public int AfbeeldingId { get; set; }
 
-        public string AfbeeldingNaam { get; set; }
+        public string? AfbeeldingNaam { get; set; }
 
         public string? AfbeeldingUrl  { get; set; }       
 

@@ -13,8 +13,8 @@ namespace HeerlijkeHerinneringen.Data.Models
         [Key]
         public int ReceptId { get; set; }
         public string Titel { get; set; }
-        public string Beschrijving { get; set; }
-        public byte Afbeelding { get; set; }
+        public string? Beschrijving { get; set; }
+        public byte?  Afbeelding { get; set; }
 
         #region List (∞ ReceptIngredient - 1 Recept)
         public ICollection<ReceptIngredient> ReceptIngredients { get; set; }
@@ -35,7 +35,7 @@ namespace HeerlijkeHerinneringen.Data.Models
         #region ForeignKey-TypeGerecht (∞ Recept - 1 TypeGerecht)
         [ForeignKey("TypeGerecht")]
         public int TypeGerechtId { get; set; }
-        public TypeGerecht TypeGerecht { get; set; }
+        public TypeGerecht? TypeGerecht { get; set; }
         #endregion
 
         #region ForeignKey-Chef (∞ Recept - 1 Chef)
@@ -43,8 +43,8 @@ namespace HeerlijkeHerinneringen.Data.Models
         public int ChefId { get; set; }
         public Chef Chef { get; set; }
         #endregion
-        public DateTime AanmaakDatum { get; set; }
-        public DateTime UpdateDatum { get; set; }
+        public DateTime? AanmaakDatum { get; set; }
+        public DateTime? UpdateDatum { get; set; }
         public bool IsDeleted { get; set; }
     }
 }
