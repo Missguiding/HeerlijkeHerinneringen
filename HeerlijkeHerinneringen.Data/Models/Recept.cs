@@ -17,6 +17,7 @@ namespace HeerlijkeHerinneringen.Data.Models
         public byte Afbeelding { get; set; }
         
         public ICollection<Ingredient> Ingredients { get; set; }
+        public ICollection<Chef> Chefs { get; set; }
 
         [ForeignKey("MenuGang")]
         public int MenuGangId { get; set; }

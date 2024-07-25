@@ -18,7 +18,6 @@ namespace HeerlijkeHerinneringen.Data.Models
         
         [ForeignKey("Recept")]
         public int ReceptId { get; set; }
-        public Recept Recept { get; set; }
-       
+        public Recept Recept { get; set; }       
     }
 }
