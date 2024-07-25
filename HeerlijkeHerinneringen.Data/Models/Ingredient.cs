@@ -13,7 +13,9 @@ namespace HeerlijkeHerinneringen.Data.Models
         [Key]
         public int IngredientId { get; set; }
         public string IngredientName { get; set; }
-        
+
+        #region List (∞ ReceptIngredient - 1 Ingredient)
         public ICollection<ReceptIngredient> ReceptIngredients { get; set; }
+        #endregion
     }
 }

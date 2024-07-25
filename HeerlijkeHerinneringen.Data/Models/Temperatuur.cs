@@ -12,7 +12,10 @@ namespace HeerlijkeHerinneringen.Data.Models
     {
         [Key]
         public int TemperatuurId { get; set; }
-        public string ITemperatuurName { get; set; }       
+        public string ITemperatuurName { get; set; }
+
+        #region List (∞ Recept - 1 Temperatuur)
         public ICollection<Recept> Recepts { get; set; }
+        #endregion
     }
 }

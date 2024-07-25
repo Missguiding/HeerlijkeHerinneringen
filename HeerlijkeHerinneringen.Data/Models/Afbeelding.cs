@@ -13,9 +13,12 @@ namespace HeerlijkeHerinneringen.Data.Models
         [Key]
         public int AfbeeldingId { get; set; }
         public string AfbeeldingNaam { get; set; }
-       
+
+        #region ForeignKey-Recept (∞ Afbeelding - 1 Recept)
+
         [ForeignKey("Recept")]
         public int ReceptId { get; set; }
         public Recept Recept { get; set; }
+        #endregion
     }
 }

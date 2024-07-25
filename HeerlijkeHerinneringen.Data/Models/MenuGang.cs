@@ -12,7 +12,10 @@ namespace HeerlijkeHerinneringen.Data.Models
     {
         [Key]
         public int MenuGangId { get; set; }
-        public string MenuGangName { get; set; }        
+        public string MenuGangName { get; set; }
+
+        #region List (∞ Recipes - 1 MenuGang)
         public ICollection<Recept> Recepts { get; set; }
+        #endregion
     }
 }
