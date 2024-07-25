@@ -8,11 +8,14 @@ using System.Threading.Tasks;
 
 namespace HeerlijkeHerinneringen.Data.Models
 {
-    public class Temperatuur 
+    public class Afbeelding
     {
         [Key]
-        public int TemperatuurId { get; set; }
-        public string ITemperatuurName { get; set; }       
-        public ICollection<Recept> Recepts { get; set; }
+        public int AfbeeldingId { get; set; }
+        public string AfbeeldingNaam { get; set; }
+       
+        [ForeignKey("Recept")]
+        public int ReceptId { get; set; }
+        public Recept Recept { get; set; }
     }
 }
