@@ -11,9 +11,6 @@ namespace HeerlijkeHerinneringen.Data.Models
     {
         public int ChefId { get; set; }
         public string ChefNaam { get; set; }
-
-        [ForeignKey("Recept")]
-        public int ReceptId { get; set; }
-        public Recept Recept { get; set; }
+        public ICollection<Recept> Recepts { get; set; }
     }
 }

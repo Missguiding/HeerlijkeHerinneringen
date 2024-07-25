@@ -16,8 +16,9 @@ namespace HeerlijkeHerinneringen.Data.Models
         public string Beschrijving { get; set; }
         public byte Afbeelding { get; set; }
         
-        public ICollection<Ingredient> Ingredients { get; set; }
-        public ICollection<Chef> Chefs { get; set; }
+        public ICollection<ReceptIngredient> ReceptIngredients { get; set; }
+
+        // 1 gang/temp/type/chef meerdere recepten
 
         [ForeignKey("MenuGang")]
         public int MenuGangId { get; set; }
@@ -30,7 +31,12 @@ namespace HeerlijkeHerinneringen.Data.Models
         [ForeignKey("TypeGerecht")]
         public int TypeGerechtId { get; set; }
         public TypeGerecht TypeGerecht { get; set; }
-        
+
+        [ForeignKey("Chef")]
+        public int ChefId { get; set; }
+        public Chef Chef { get; set; }
+
+
         public DateTime AanmaakDatum { get; set; }
         public DateTime UpdateDatum { get; set; }
         public bool IsDeleted { get; set; }

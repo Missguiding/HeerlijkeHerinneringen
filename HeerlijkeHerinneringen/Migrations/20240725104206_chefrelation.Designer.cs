@@ -4,6 +4,7 @@ using HeerlijkeHerinneringen.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HeerlijkeHerinneringen.Migrations
 {
     [DbContext(typeof(HeerlijkeHerinneringenContext))]
-    partial class HeerlijkeHerinneringenContextModelSnapshot : ModelSnapshot
+    [Migration("20240725104206_chefrelation")]
+    partial class chefrelation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -69,11 +72,24 @@ namespace HeerlijkeHerinneringen.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IngredientId"));
 
+                    b.Property<string>("Eenheid")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Hoeveelheid")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("IngredientName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("ReceptId")
+                        .HasColumnType("int");
+
                     b.HasKey("IngredientId");
+
+                    b.HasIndex("ReceptId");
 
                     b.ToTable("Ingredients");
                 });
@@ -148,29 +164,6 @@ namespace HeerlijkeHerinneringen.Migrations
                     b.ToTable("Recepts");
                 });
 
-            modelBuilder.Entity("HeerlijkeHerinneringen.Data.Models.ReceptIngredient", b =>
-                {
-                    b.Property<int>("ReceptId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IngredientId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Eenheid")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Hoeveelheid")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ReceptId", "IngredientId");
-
-                    b.HasIndex("IngredientId");
-
-                    b.ToTable("ReceptIngredients");
-                });
-
             modelBuilder.Entity("HeerlijkeHerinneringen.Data.Models.Temperatuur", b =>
                 {
                     b.Property<int>("TemperatuurId")
@@ -216,6 +209,17 @@ namespace HeerlijkeHerinneringen.Migrations
                     b.Navigation("Recept");
                 });
 
+            modelBuilder.Entity("HeerlijkeHerinneringen.Data.Models.Ingredient", b =>
+                {
+                    b.HasOne("HeerlijkeHerinneringen.Data.Models.Recept", "Recept")
+                        .WithMany("Ingredients")
+                        .HasForeignKey("ReceptId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Recept");
+                });
+
             modelBuilder.Entity("HeerlijkeHerinneringen.Data.Models.Recept", b =>
                 {
                     b.HasOne("HeerlijkeHerinneringen.Data.Models.Chef", "Chef")
@@ -251,33 +255,9 @@ namespace HeerlijkeHerinneringen.Migrations
                     b.Navigation("TypeGerecht");
                 });
 
-            modelBuilder.Entity("HeerlijkeHerinneringen.Data.Models.ReceptIngredient", b =>
-                {
-                    b.HasOne("HeerlijkeHerinneringen.Data.Models.Ingredient", "Ingredient")
-                        .WithMany("ReceptIngredients")
-                        .HasForeignKey("IngredientId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("HeerlijkeHerinneringen.Data.Models.Recept", "Recept")
-                        .WithMany("ReceptIngredients")
-                        .HasForeignKey("ReceptId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Ingredient");
-
-                    b.Navigation("Recept");
-                });
-
             modelBuilder.Entity("HeerlijkeHerinneringen.Data.Models.Chef", b =>
                 {
                     b.Navigation("Recepts");
-                });
-
-            modelBuilder.Entity("HeerlijkeHerinneringen.Data.Models.Ingredient", b =>
-                {
-                    b.Navigation("ReceptIngredients");
                 });
 
             modelBuilder.Entity("HeerlijkeHerinneringen.Data.Models.MenuGang", b =>
@@ -287,7 +267,7 @@ namespace HeerlijkeHerinneringen.Migrations
 
             modelBuilder.Entity("HeerlijkeHerinneringen.Data.Models.Recept", b =>
                 {
-                    b.Navigation("ReceptIngredients");
+                    b.Navigation("Ingredients");
                 });
 
             modelBuilder.Entity("HeerlijkeHerinneringen.Data.Models.Temperatuur", b =>

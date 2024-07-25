@@ -13,11 +13,7 @@ namespace HeerlijkeHerinneringen.Data.Models
         [Key]
         public int IngredientId { get; set; }
         public string IngredientName { get; set; }
-        public string Eenheid { get; set; }
-        public string Hoeveelheid { get; set; }
         
-        [ForeignKey("Recept")]
-        public int ReceptId { get; set; }
-        public Recept Recept { get; set; }       
+        public ICollection<ReceptIngredient> ReceptIngredients { get; set; }
     }
 }
