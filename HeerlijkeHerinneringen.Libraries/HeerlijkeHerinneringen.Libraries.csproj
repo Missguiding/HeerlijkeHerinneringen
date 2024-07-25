@@ -13,7 +13,6 @@
   <ItemGroup>
     <Folder Include="ViewModels\" />
     <Folder Include="Services\" />
-    <Folder Include="Repositories\" />
     <Folder Include="Profiles\" />
   </ItemGroup>
 
