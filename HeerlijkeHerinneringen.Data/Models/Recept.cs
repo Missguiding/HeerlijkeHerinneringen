@@ -12,12 +12,15 @@ namespace HeerlijkeHerinneringen.Data.Models
     {
         [Key]
         public int ReceptId { get; set; }
-        public string Titel { get; set; }
-        public string? Beschrijving { get; set; }
+        public string Titel { get; set; }        
         public byte?  Afbeelding { get; set; }
 
         #region List (∞ ReceptIngredient - 1 Recept)
         public ICollection<ReceptIngredient> ReceptIngredients { get; set; }
+        #endregion
+
+        #region List (∞ ReceptStap - 1 Recept)
+        public ICollection<ReceptStap> ReceptStaps { get; set; }
         #endregion
 
         #region ForeignKey-MenuGang (∞ Recept - 1 MenuGang)
