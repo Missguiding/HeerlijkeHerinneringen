@@ -16,7 +16,7 @@ namespace HeerlijkeHerinneringen.Data.Models
         public Ingredient Ingredient { get; set; }
         #endregion
 
-        public string Eenheid { get; set; }
-        public string Hoeveelheid { get; set; }
+        public string? Eenheid { get; set; }
+        public string? Hoeveelheid { get; set; }
     }
 }
