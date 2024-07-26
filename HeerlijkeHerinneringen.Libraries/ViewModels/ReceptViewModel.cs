@@ -16,5 +16,6 @@ namespace HeerlijkeHerinneringen.Libraries.ViewModels
         public string TypeGerecht { get; set; }       
         public byte? Afbeelding { get; set; }
         public List<ReceptStapViewModel> ReceptStaps { get; set; }
+        public List<BenodigdheidViewModel> Benodigdheids { get; set; }
     }
 }

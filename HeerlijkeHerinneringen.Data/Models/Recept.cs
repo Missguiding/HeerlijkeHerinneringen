@@ -23,6 +23,10 @@ namespace HeerlijkeHerinneringen.Data.Models
         public ICollection<ReceptStap> ReceptStaps { get; set; }
         #endregion
 
+        #region List (∞ Benodigdheid - 1 Recept)
+        public ICollection<Benodigdheid> Benodigdheids { get; set; }
+        #endregion
+
         #region ForeignKey-MenuGang (∞ Recept - 1 MenuGang)
         [ForeignKey("MenuGang")]
         public int MenuGangId { get; set; }        
