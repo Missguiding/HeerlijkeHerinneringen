@@ -25,7 +25,8 @@ namespace HeerlijkeHerinneringen.Libraries.Profiles
                 .ForMember(dest => dest.Titel, opt => opt.MapFrom(src => src.Titel))
                 .ForMember(dest => dest.Afbeelding, opt => opt.MapFrom(src => src.Afbeelding))
                 .ForMember(dest => dest.ReceptStaps, opt => opt.MapFrom(src => src.ReceptStaps))
-                .ForMember(dest => dest.Benodigdheids, opt => opt.MapFrom(src => src.Benodigdheids));
+                .ForMember(dest => dest.Ingredients, opt => opt.MapFrom(src => src.ReceptIngredients))
+                .ForMember(dest => dest.Benodigdheids, opt => opt.MapFrom(src => src.ReceptBenodigdheids));
             CreateMap<ReceptViewModel, Recept>();
 
             CreateMap<ReceptStap, ReceptStapViewModel>()
@@ -34,7 +35,7 @@ namespace HeerlijkeHerinneringen.Libraries.Profiles
             CreateMap<ReceptStapViewModel, ReceptStap>();
 
             CreateMap<Benodigdheid, BenodigdheidViewModel>()
-                .ForMember(dest => dest.Naam, opt => opt.MapFrom(src => src.Naam));
+                .ForMember(dest => dest.Naam, opt => opt.MapFrom(src => src.BenodigdheidNaam));
             CreateMap<BenodigdheidViewModel, Benodigdheid>();
 
             CreateMap<Ingredient, IngredientViewModel>();

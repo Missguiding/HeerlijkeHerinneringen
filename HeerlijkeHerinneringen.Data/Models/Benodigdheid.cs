@@ -12,12 +12,10 @@ namespace HeerlijkeHerinneringen.Data.Models
     {
         [Key]
         public int BenodigdheidId { get; set; }
-        public string Naam { get; set; }
+        public string BenodigdheidNaam { get; set; }
 
-        #region ForeignKey-Recept (∞ Benodigdheid - 1 Recept)
-        [ForeignKey("Recept")]
-        public int ReceptId { get; set; }
-        public Recept Recept { get; set; }
+        #region List (∞ ReceptBenodigdheid - 1 Benodigdheid)
+        public ICollection<ReceptBenodigdheid> ReceptBenodigdheids { get; set; }
         #endregion
     }
 }
