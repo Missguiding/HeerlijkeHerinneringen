@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace HeerlijkeHerinneringen.Libraries.Repositories
 {
@@ -21,7 +22,12 @@ namespace HeerlijkeHerinneringen.Libraries.Repositories
 
         public IEnumerable<T> GetAll()
         {
+            //De methode controleert eerst of het generieke type T overeenkomt met het type Recept.
             if (typeof(T) == typeof(Recept))
+                //Als T van het type Recept is,
+                //wordt een query opgebouwd die alle relevante gerelateerde gegevens
+                //(Chef, TypeGerecht, MenuGang, Temperatuur, ReceptIngredients, ReceptStaps, ReceptBenodigdheids)
+                //laadt met behulp van Include en ThenInclude.
             {
                 return _dbContext.Set<T>()
                           .Include(r => ((Recept)(object)r).Chef)
@@ -35,7 +41,8 @@ namespace HeerlijkeHerinneringen.Libraries.Repositories
                               .ThenInclude(rb => rb.Benodigdheid)
                           .ToList();
             }
-
+            //Als T niet van het type Recept is, wordt een algemene query uitgevoerd.
+            //Het resultaat wordt ook omgezet naar een lijst en geretourneerd.
             return _dbContext.Set<T>().ToList();            
         }
 
