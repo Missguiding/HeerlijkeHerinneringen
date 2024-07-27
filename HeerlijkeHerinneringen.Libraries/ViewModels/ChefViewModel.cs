@@ -9,6 +9,7 @@ namespace HeerlijkeHerinneringen.Libraries.ViewModels
     public class ChefViewModel
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string ChefVoorNaam { get; set; }
+        public string ChefFamilieNaam { get; set; }
     }
 }

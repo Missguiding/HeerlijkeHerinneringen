@@ -17,7 +17,7 @@ namespace HeerlijkeHerinneringen.Libraries.Repositories
 
         public Chef GetByName(string name)
         {
-            return _dbContext.Chefs.Where(r => r.ChefNaam == name).FirstOrDefault();
+            return _dbContext.Chefs.Where(r => r.ChefFamilieNaam == name).FirstOrDefault();
         }
     }
 }

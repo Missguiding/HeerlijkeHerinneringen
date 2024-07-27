@@ -10,7 +10,8 @@ namespace HeerlijkeHerinneringen.Data.Models
     public class Chef
     {
         public int ChefId { get; set; }
-        public string ChefNaam { get; set; }
+        public string ChefVoorNaam { get; set; }
+        public string ChefFamilieNaam { get; set; }
 
         #region List (∞ Recept - 1 Chef)
         public ICollection<Recept> Recepts { get; set; }
