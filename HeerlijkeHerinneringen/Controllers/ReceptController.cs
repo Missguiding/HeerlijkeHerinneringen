@@ -43,7 +43,7 @@ namespace HeerlijkeHerinneringen.Controllers
             {
                 if (!_receptService.ReceptExistsByName(recept.Titel))
                 {
-                    // Voeg de nieuwe aandoening toe aan de service
+                    // Voeg de nieuw recept toe aan de service
                     _receptService.Add(recept);
 
 

@@ -54,8 +54,10 @@ namespace HeerlijkeHerinneringen.Libraries.Profiles
               .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.IngredientName));
             CreateMap<IngredientViewModel, Ingredient>();
 
-            CreateMap<Chef, ChefViewModel>();
-            CreateMap<ChefViewModel, Chef>();
+            CreateMap<Chef, ChefViewModel>()
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.ChefNaam)); 
+            CreateMap<ChefViewModel, Chef>()
+                .ForMember(dest => dest.ChefNaam, opt => opt.MapFrom(src => src.Name)); ;
         }
     }
 }

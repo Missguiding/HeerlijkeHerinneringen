@@ -12,8 +12,12 @@ var builder = WebApplication.CreateBuilder(args);
 #region builder.Services AddScoped - Dependency Injection
 builder.Services.AddScoped<IRepository<Recept>, BasisRepo<Recept>>();
 builder.Services.AddScoped<ReceptRepository>();
+builder.Services.AddScoped<IRepository<Chef>, BasisRepo<Chef>>();
+builder.Services.AddScoped<ChefRepository>();
 
 builder.Services.AddScoped<ReceptService>();
+builder.Services.AddScoped<ChefService>();
+
 
 #endregion
 
