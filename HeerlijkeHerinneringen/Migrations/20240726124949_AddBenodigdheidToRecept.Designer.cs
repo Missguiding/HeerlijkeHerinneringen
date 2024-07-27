@@ -4,6 +4,7 @@ using HeerlijkeHerinneringen.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HeerlijkeHerinneringen.Migrations
 {
     [DbContext(typeof(HeerlijkeHerinneringenContext))]
-    partial class HeerlijkeHerinneringenContextModelSnapshot : ModelSnapshot
+    [Migration("20240726124949_AddBenodigdheidToRecept")]
+    partial class AddBenodigdheidToRecept
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -197,9 +200,6 @@ namespace HeerlijkeHerinneringen.Migrations
 
                     b.Property<string>("Hoeveelheid")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ReceptIngredientId")
-                        .HasColumnType("int");
 
                     b.HasKey("ReceptId", "IngredientId");
 

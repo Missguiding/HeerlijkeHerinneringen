@@ -1,5 +1,7 @@
 ﻿using HeerlijkeHerinneringen.Data.Context;
+using HeerlijkeHerinneringen.Data.Models;
 using HeerlijkeHerinneringen.Libraries.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,8 +21,22 @@ namespace HeerlijkeHerinneringen.Libraries.Repositories
 
         public IEnumerable<T> GetAll()
         {
+            if (typeof(T) == typeof(Recept))
+            {
+                return _dbContext.Set<T>()
+                          .Include(r => ((Recept)(object)r).Chef)
+                          .Include(r => ((Recept)(object)r).TypeGerecht)
+                          .Include(r => ((Recept)(object)r).MenuGang)
+                          .Include(r => ((Recept)(object)r).Temperatuur)
+                          .Include(r => ((Recept)(object)r).ReceptIngredients)
+                              .ThenInclude(rb => rb.Ingredient)
+                          .Include(r => ((Recept)(object)r).ReceptStaps)
+                          .Include(r => ((Recept)(object)r).ReceptBenodigdheids)
+                              .ThenInclude(rb => rb.Benodigdheid)
+                          .ToList();
+            }
 
-            return _dbContext.Set<T>().ToList();
+            return _dbContext.Set<T>().ToList();            
         }
 
         public T GetById(int id)

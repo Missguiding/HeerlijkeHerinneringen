@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,7 @@ namespace HeerlijkeHerinneringen.Data.Models
         public Benodigdheid Benodigdheid { get; set; }
         #endregion
 
+        [Key] public int ReceptBenodigdheidId { get; set; }
         public string? Hoeveelheid { get; set; }
     }
 }

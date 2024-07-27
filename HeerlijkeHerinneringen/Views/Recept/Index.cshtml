@@ -1,0 +1,66 @@
+﻿@model IEnumerable<HeerlijkeHerinneringen.Libraries.ViewModels.ReceptViewModel>
+
+@using HeerlijkeHerinneringen.Controllers;
+@using HeerlijkeHerinneringen.Libraries.Services;
+
+<head>
+</head>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Titel</th>
+            <th>Menugang</th>
+            <th>Chef</th>
+            <th>Type gerecht</th>
+            <th>Temperatuur</th>
+            <th>Ingrediënten</th>
+            <th>Benodigdheden</th>
+            <th>Stappen</th>
+            <th>Afbeelding</th>
+            <th>Acties</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Titel)</td>
+                <td>@Html.DisplayFor(modelItem => item.MenuGang)</td>
+                <td>@Html.DisplayFor(modelItem => item.Chef)</td>
+                <td>@Html.DisplayFor(modelItem => item.TypeGerecht)</td>
+                <td>@Html.DisplayFor(modelItem => item.Temperatuur)</td>
+                <td>
+                    <ul>
+                        @foreach (var ingredient in item.ReceptIngredients)
+                        {
+                            <li>@ingredient.Hoeveelheid @ingredient.Eenheid @ingredient.NaamIngredient.Name</li>
+                        }
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        @foreach (var benodigdheid in item.ReceptBenodigdheids)
+                        {
+                            <li>@benodigdheid.Hoeveelheid @benodigdheid.Benodigdheid.Naam</li>
+                        }
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        @foreach (var staps in item.ReceptStaps.OrderBy(s => s.Volgorde))
+                        {
+                            <li>@staps.Volgorde @staps.Beschrijving</li>
+                        }
+                    </ul>
+                </td>
+                <td>@Html.DisplayFor(modelItem => item.Afbeelding)</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
