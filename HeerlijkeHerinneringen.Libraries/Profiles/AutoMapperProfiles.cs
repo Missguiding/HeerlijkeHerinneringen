@@ -18,8 +18,8 @@ namespace HeerlijkeHerinneringen.Libraries.Profiles
         {
             //AutoMapper haalt de juiste eigenschappen van recept op.
             CreateMap<Recept, ReceptViewModel>()
-    .ForMember(dest => dest.Chef, opt => opt.MapFrom(src => src.Chef.ChefVoorNaam))
-    .ForMember(dest => dest.Chef, opt => opt.MapFrom(src => src.Chef.ChefFamilieNaam))
+    .ForMember(dest => dest.ChefVoorNaam, opt => opt.MapFrom(src => src.Chef.ChefVoorNaam))
+    .ForMember(dest => dest.ChefFamilieNaam, opt => opt.MapFrom(src => src.Chef.ChefFamilieNaam))
     .ForMember(dest => dest.MenuGang, opt => opt.MapFrom(src => src.MenuGang.MenuGangName))
     .ForMember(dest => dest.Temperatuur, opt => opt.MapFrom(src => src.Temperatuur.TemperatuurName))
     .ForMember(dest => dest.TypeGerecht, opt => opt.MapFrom(src => src.TypeGerecht.TypeGerechtName))
