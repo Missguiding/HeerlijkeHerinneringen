@@ -12,8 +12,8 @@ namespace HeerlijkeHerinneringen.Data.Models
     {
         [Key]
         public int ReceptId { get; set; }
-        public string Titel { get; set; }        
-        public byte?  Afbeelding { get; set; }
+        public string Titel { get; set; }
+        public ICollection<Afbeelding> Afbeeldingen { get; set; }
 
         #region List (∞ ReceptIngredient - 1 Recept)
         public ICollection<ReceptIngredient> ReceptIngredients { get; set; }
