@@ -1,4 +1,5 @@
-﻿using HeerlijkeHerinneringen.Libraries.Services;
+﻿using HeerlijkeHerinneringen.Data.Models;
+using HeerlijkeHerinneringen.Libraries.Services;
 using HeerlijkeHerinneringen.Libraries.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -44,48 +45,50 @@ namespace HeerlijkeHerinneringen.Controllers
         }
 
         // GET: ReceptController/Edit/5
-        //public ActionResult Edit(int id)
-        //{
-        //    return View(_chefService.GetById(id));
-        //}
+        public ActionResult Edit(int id)
+        {
+            return View(_chefService.GetById(id));
+        }
 
         // POST: ReceptController/Edit/5
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Edit(ChefViewModel chef)
-        //{
-        //    try
-        //    {
-        //        _chefService.Update(chef);
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(ChefViewModel chef)
+        {
+            try
+            {
+                _chefService.Update(chef);
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
 
         // GET: ReceptController/Delete/5
-        //public ActionResult Delete(int id)
-        //{
-        //    return View(_chefService.GetById(id));
-        //}
+
+        
+        public ActionResult Delete(int id)
+        {
+            return View(_chefService.GetById(id));
+        }
 
         // POST: ReceptController/Delete/5
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Delete(int id, ChefViewModel chef)
-        //{
-        //    try
-        //    {
-        //        // Verwijder de chef met de opgegeven ID
-        //        _chefService.Delete(chef.Id);
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(ChefViewModel chef)
+        {
+            try
+            {
+                // Verwijder de chef op basis van ID
+                _chefService.Delete(chef.Id);
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
     }
 }

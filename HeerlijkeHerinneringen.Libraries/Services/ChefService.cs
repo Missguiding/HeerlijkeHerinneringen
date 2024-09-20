@@ -17,10 +17,11 @@ namespace HeerlijkeHerinneringen.Libraries.Services
         private IMapper _mapper;
         private ChefRepository _chefRepo;
 
-        public ChefService(IRepository<Chef> chefRepository, IMapper mapper)
+        public ChefService(IRepository<Chef> chefRepository, IMapper mapper, ChefRepository chefRepo)
         {
             _chefRepository = chefRepository;
             _mapper = mapper;
+            _chefRepo = chefRepo;
         }
 
         public List<ChefViewModel> GetAll()
