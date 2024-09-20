@@ -3,6 +3,7 @@ using HeerlijkeHerinneringen.Libraries.Services;
 using HeerlijkeHerinneringen.Libraries.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace HeerlijkeHerinneringen.Controllers
 {
@@ -24,7 +25,8 @@ namespace HeerlijkeHerinneringen.Controllers
 
         // GET: ReceptController/Details/5
         public ActionResult Details(int id)
-        {
+        {  
+           
             return View(_receptService.GetById(id));
         }
 
@@ -53,7 +55,7 @@ namespace HeerlijkeHerinneringen.Controllers
                 {
                     return RedirectToAction(nameof(Index));
                 }
-                
+
             }
             catch
             {
@@ -92,7 +94,7 @@ namespace HeerlijkeHerinneringen.Controllers
         // POST: ReceptController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, ReceptViewModel recept)
+        public ActionResult Delete(ReceptViewModel recept)
         {
             try
             {

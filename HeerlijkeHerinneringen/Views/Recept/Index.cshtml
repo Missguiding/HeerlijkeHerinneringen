@@ -11,14 +11,15 @@
         <tr>
             <th>Titel</th>
             <th>Menugang</th>
-            <th>Chef</th>
+            <th>Chef Voornaam</th>
+            <th>Chef Familienaam</th>
             <th>Type gerecht</th>
             <th>Temperatuur</th>
             <th>Ingrediënten</th>
             <th>Benodigdheden</th>
             <th>Stappen</th>
+           
             <th>Afbeelding</th>
-            <th>Acties</th>
         </tr>
     </thead>
     <tbody>
@@ -55,11 +56,11 @@
                         }
                     </ul>
                 </td>
-                <td>@Html.DisplayFor(modelItem => item.Afbeelding)</td>
+               
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    @* @Html.ActionLink("Edit", "Edit", new { id = item.Id }) | *@
+                    @Html.ActionLink("Afbeelding", "Details", new { id = item.Id }) 
+                   @*  @Html.ActionLink("Delete", "Delete", new { id = item.Id }) *@
                 </td>
             </tr>
         }

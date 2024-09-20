@@ -3,6 +3,7 @@ using HeerlijkeHerinneringen.Data.Models;
 using HeerlijkeHerinneringen.Libraries.Interfaces;
 using HeerlijkeHerinneringen.Libraries.Repositories;
 using HeerlijkeHerinneringen.Libraries.ViewModels;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,10 +18,11 @@ namespace HeerlijkeHerinneringen.Libraries.Services
         private IMapper _mapper;
         private ReceptRepository _receptRepo;
 
-        public ReceptService(IRepository<Recept> receptRepositroy, IMapper mapper)
+        public ReceptService(IRepository<Recept> receptRepository, IMapper mapper, ReceptRepository receptRepo)
         {
-            _receptRepository = receptRepositroy;
+            _receptRepository = receptRepository;
             _mapper = mapper;
+            _receptRepo = receptRepo;
         }
 
         public List<ReceptViewModel> GetAll()
@@ -28,8 +30,17 @@ namespace HeerlijkeHerinneringen.Libraries.Services
             return _mapper.Map<List<ReceptViewModel>>(_receptRepository.GetAll().ToList());
         }
 
+        //// Methode om alle recepten op te halen
+        //public IEnumerable<Recept> GetAllRecepts()
+        //{
+        //    // Haalt recepten op via de repository
+        //    return _receptRepo.GetAllRecepies().ToList();
+        //}
         public ReceptViewModel GetById(int id)
         {
+            //return _receptRepo.GetAllRecepies()
+            //                     .Include(r => r.Afbeeldingen) // Zorgt ervoor dat afbeeldingen worden opgehaald
+            //                     .FirstOrDefault(r => r.ReceptId == id);
             return _mapper.Map<ReceptViewModel>(_receptRepository.GetById(id));
         }
 

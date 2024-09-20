@@ -1,0 +1,19 @@
+﻿
+
+ @model HeerlijkeHerinneringen.Libraries.ViewModels.ReceptViewModel
+
+<h1>@Model.Titel</h1>
+
+<p>@Model.Titel</p>
+
+@if (Model.Afbeeldingen != null && Model.Afbeeldingen.Any())
+{
+    foreach (var afbeelding in Model.Afbeeldingen)
+    {
+        <img src="@Url.Content(afbeelding.AfbeeldingUrl)" alt="Afbeelding van @Model.Titel" />
+    }
+}
+else
+{
+    <p>Geen afbeelding beschikbaar.</p>
+}
