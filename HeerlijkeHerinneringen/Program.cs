@@ -14,9 +14,11 @@ builder.Services.AddScoped<IRepository<Recept>, BasisRepo<Recept>>();
 builder.Services.AddScoped<ReceptRepository>();
 builder.Services.AddScoped<IRepository<Chef>, BasisRepo<Chef>>();
 builder.Services.AddScoped<ChefRepository>();
+builder.Services.AddScoped<IRepository<Afbeelding>, BasisRepo<Afbeelding>>();
 
 builder.Services.AddScoped<ReceptService>();
 builder.Services.AddScoped<ChefService>();
+builder.Services.AddScoped<AfbeeldingService>();
 
 
 #endregion
