@@ -8,6 +8,7 @@ namespace HeerlijkeHerinneringen.Libraries.ViewModels
 {
     public class ReceptStapViewModel
     {
+        public int Id { get; set; }
         public int Volgorde { get; set; }
         public string Beschrijving { get; set; }
     }

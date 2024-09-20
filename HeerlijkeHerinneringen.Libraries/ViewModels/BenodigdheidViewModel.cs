@@ -8,6 +8,7 @@ namespace HeerlijkeHerinneringen.Libraries.ViewModels
 {
     public class BenodigdheidViewModel
     {
+        public int Id { get; set; }
         public string Naam { get; set; }
     }
 }

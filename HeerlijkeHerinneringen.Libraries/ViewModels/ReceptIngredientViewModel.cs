@@ -8,6 +8,7 @@ namespace HeerlijkeHerinneringen.Libraries.ViewModels
 {
     public class ReceptIngredientViewModel
     {
+        public int Id { get; set; }
         public string? Eenheid { get; set; }
         public string? Hoeveelheid { get; set; }        
 
