@@ -15,13 +15,12 @@ namespace HeerlijkeHerinneringen.Libraries.Services
     {
         private IRepository<Benodigdheid> _benodigdheidRepository;
         private IMapper _mapper;
-        private BenodigdheidRepo _benodigdheidRepo;
+       
 
-        public BenodigdheidService(IRepository<Benodigdheid> benodigdheidRepository, IMapper mapper, BenodigdheidRepo benodigdheidRepo)
+        public BenodigdheidService(IRepository<Benodigdheid> benodigdheidRepository, IMapper mapper)
         {
             _benodigdheidRepository = benodigdheidRepository;
-            _mapper = mapper;
-            _benodigdheidRepo = benodigdheidRepo;
+            _mapper = mapper;           
         }
 
         public List<BenodigdheidViewModel> GetAll()
