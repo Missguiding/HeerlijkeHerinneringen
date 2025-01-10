@@ -1,6 +1,7 @@
 ﻿using HeerlijkeHerinneringen.Data.Models;
 using HeerlijkeHerinneringen.Libraries.Services;
 using HeerlijkeHerinneringen.Libraries.ViewModels;
+using HeerlijkeHerinneringen.Migrations;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -38,10 +39,25 @@ namespace HeerlijkeHerinneringen.Controllers
         public ActionResult Create(ChefViewModel chef)
         {
 
-                // Voeg de nieuwe chef toe aan de service
+            // Controleer of een chef met dezelfde naam al bestaat
+            ChefViewModel existingChef = _chefService.GetAll().
+                FirstOrDefault(s => s.VoorNaam.ToLower() == chef.VoorNaam.ToLower());
+                
+
+            if (existingChef != null)
+            {
+                // Voeg een foutmelding toe aan het modelstate als de chef al bestaat
+                ModelState.AddModelError("VoorNaam", "Chef bestaat al, selecteer uit de lijst aub.");
+                ViewBag.Message = "VoorNaam";
+                return View(chef);
+            }
+            else
+            {
+                // Voeg de nieuwe chef toe aan de repository
                 _chefService.Add(chef);
-                //return View(chef);
-                return RedirectToAction("Index");
+
+                return RedirectToAction("Index", "Chef");
+            }
         }
 
         // GET: ReceptController/Edit/5
