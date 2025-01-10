@@ -38,10 +38,10 @@ namespace HeerlijkeHerinneringen.Controllers
         public ActionResult Create(ChefViewModel chef)
         {
 
-            // Voeg de nieuwe chef toe aan de service
-            _chefService.Add(chef);
-            //return View(chef);
-            return RedirectToAction("Index");
+                // Voeg de nieuwe chef toe aan de service
+                _chefService.Add(chef);
+                //return View(chef);
+                return RedirectToAction("Index");
         }
 
         // GET: ReceptController/Edit/5
