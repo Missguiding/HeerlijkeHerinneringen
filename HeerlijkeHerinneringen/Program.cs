@@ -14,12 +14,14 @@ builder.Services.AddScoped<IRepository<Recept>, BasisRepo<Recept>>();
 builder.Services.AddScoped<ReceptRepository>();
 builder.Services.AddScoped<IRepository<Chef>, BasisRepo<Chef>>();
 builder.Services.AddScoped<IRepository<Benodigdheid>, BasisRepo<Benodigdheid>>();
+builder.Services.AddScoped<IRepository<Ingredient>, BasisRepo<Ingredient>>();
 builder.Services.AddScoped<IRepository<Afbeelding>, BasisRepo<Afbeelding>>();
 //builder.Services.AddScoped<AfbeeldingRepository>();
 
 builder.Services.AddScoped<ReceptService>();
 builder.Services.AddScoped<ChefService>();
 builder.Services.AddScoped<BenodigdheidService>();
+builder.Services.AddScoped<IngredientService>();
 builder.Services.AddScoped<AfbeeldingService>();
 
 
