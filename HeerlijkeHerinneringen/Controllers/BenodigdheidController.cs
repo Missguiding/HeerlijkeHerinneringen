@@ -1,4 +1,5 @@
 ﻿using HeerlijkeHerinneringen.Data.Models;
+using HeerlijkeHerinneringen.Libraries.Repositories;
 using HeerlijkeHerinneringen.Libraries.Services;
 using HeerlijkeHerinneringen.Libraries.ViewModels;
 using Microsoft.AspNetCore.Http;
@@ -9,10 +10,12 @@ namespace HeerlijkeHerinneringen.Controllers
     public class BenodigdheidController : Controller
     {
         public BenodigdheidService _benodigdheidService;
+        //public BenodigdheidRepo _benodigdheidRepo;
 
-        public BenodigdheidController(BenodigdheidService benodigdheidService)
+        public BenodigdheidController(BenodigdheidService benodigdheidService /*BenodigdheidRepo benodigdheidRepo*/)
         {
             _benodigdheidService = benodigdheidService;
+            //_benodigdheidRepo = benodigdheidRepo;
         }
         // GET: BenodigdheidController
         public ActionResult Index()
@@ -38,6 +41,27 @@ namespace HeerlijkeHerinneringen.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(BenodigdheidViewModel benodigdheid)
         {
+
+            // Controleer of een specialisatie met dezelfde naam al bestaat
+            BenodigdheidViewModel existingSpecialization = _benodigdheidService.GetAll()
+                .FirstOrDefault(s => s.Naam.ToLower() == benodigdheid.Naam.ToLower());
+
+            if (existingSpecialization != null)
+            {
+                // Voeg een foutmelding toe aan het modelstate als de specialisatie al bestaat
+                ModelState.AddModelError("Naam", "Benodigdheid bestaat al.");
+                ViewBag.Message = "Benodigdheid";
+                return View(benodigdheid);
+            }
+            else
+            {
+                // Voeg de nieuwe specialisatie toe aan de repository
+                _benodigdheidService.Add(benodigdheid);                
+
+                return RedirectToAction("Index", "Benodigdheid");
+            }
+
+
             // Voeg de nieuwe benodigheid toe aan de service/data
             _benodigdheidService.Add(benodigdheid);
            
