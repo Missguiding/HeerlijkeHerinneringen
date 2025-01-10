@@ -13,7 +13,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<IRepository<Recept>, BasisRepo<Recept>>();
 builder.Services.AddScoped<ReceptRepository>();
 builder.Services.AddScoped<IRepository<Chef>, BasisRepo<Chef>>();
-builder.Services.AddScoped<ChefRepository>();
 builder.Services.AddScoped<IRepository<Benodigdheid>, BasisRepo<Benodigdheid>>();
 builder.Services.AddScoped<IRepository<Afbeelding>, BasisRepo<Afbeelding>>();
 //builder.Services.AddScoped<AfbeeldingRepository>();

@@ -14,14 +14,13 @@ namespace HeerlijkeHerinneringen.Libraries.Services
     public class ChefService
     {
         private IRepository<Chef> _chefRepository;
-        private IMapper _mapper;
-        private ChefRepository _chefRepo;
+        private IMapper _mapper;       
 
-        public ChefService(IRepository<Chef> chefRepository, IMapper mapper, ChefRepository chefRepo)
+        public ChefService(IRepository<Chef> chefRepository, IMapper mapper)
         {
             _chefRepository = chefRepository;
             _mapper = mapper;
-            _chefRepo = chefRepo;
+           
         }
 
         public List<ChefViewModel> GetAll()
