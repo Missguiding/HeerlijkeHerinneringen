@@ -42,11 +42,11 @@ namespace HeerlijkeHerinneringen.Controllers
         public ActionResult Create(BenodigdheidViewModel benodigdheid)
         {
 
-            // Controleer of een specialisatie met dezelfde naam al bestaat
-            BenodigdheidViewModel existingSpecialization = _benodigdheidService.GetAll()
+            // Controleer of een benodigdheid met dezelfde naam al bestaat
+            BenodigdheidViewModel existingBenodigdheid = _benodigdheidService.GetAll()
                 .FirstOrDefault(s => s.Naam.ToLower() == benodigdheid.Naam.ToLower());
 
-            if (existingSpecialization != null)
+            if (existingBenodigdheid != null)
             {
                 // Voeg een foutmelding toe aan het modelstate als de specialisatie al bestaat
                 ModelState.AddModelError("Naam", "Benodigdheid bestaat al, selecteer uit de lijst aub.");
