@@ -46,7 +46,9 @@ namespace HeerlijkeHerinneringen.Libraries.Profiles
             CreateMap<Ingredient, IngredientViewModel>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.IngredientId))
               .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.IngredientName));
-            CreateMap<IngredientViewModel, Ingredient>();
+            CreateMap<IngredientViewModel, Ingredient>()
+                 .ForMember(dest => dest.IngredientId, opt => opt.MapFrom(src => src.Id))
+              .ForMember(dest => dest.IngredientName, opt => opt.MapFrom(src => src.Name));
 
             CreateMap<MenuGang, MenuGangViewModel>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.MenuGangId))
