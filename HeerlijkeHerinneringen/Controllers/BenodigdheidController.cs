@@ -49,14 +49,14 @@ namespace HeerlijkeHerinneringen.Controllers
             if (existingSpecialization != null)
             {
                 // Voeg een foutmelding toe aan het modelstate als de specialisatie al bestaat
-                ModelState.AddModelError("Naam", "Benodigdheid bestaat al.");
+                ModelState.AddModelError("Naam", "Benodigdheid bestaat al, selecteer uit de lijst aub.");
                 ViewBag.Message = "Benodigdheid";
                 return View(benodigdheid);
             }
             else
             {
                 // Voeg de nieuwe specialisatie toe aan de repository
-                _benodigdheidService.Add(benodigdheid);                
+                _benodigdheidService.Add(benodigdheid);
 
                 return RedirectToAction("Index", "Benodigdheid");
             }
