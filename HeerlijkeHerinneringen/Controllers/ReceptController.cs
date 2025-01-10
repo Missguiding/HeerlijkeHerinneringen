@@ -41,26 +41,13 @@ namespace HeerlijkeHerinneringen.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(ReceptViewModel recept)
         {
-            try
-            {
-                if (!_receptService.ReceptExistsByName(recept.Titel))
-                {
-                    // Voeg de nieuw recept toe aan de service
-                    _receptService.Add(recept);
+            
 
-
-                    return View(recept);
-                }
-                else
-                {
-                    return RedirectToAction(nameof(Index));
-                }
-
-            }
-            catch
-            {
-                return View(recept);
-            }
+                // Voeg de nieuwe chef toe aan de service
+                _receptService.Add(recept);
+                //return View(chef);
+                return RedirectToAction("Index");
+            
         }
 
         // GET: ReceptController/Edit/5
