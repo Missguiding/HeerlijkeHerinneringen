@@ -10,13 +10,13 @@ namespace HeerlijkeHerinneringen.Controllers
     public class BenodigdheidController : Controller
     {
         public BenodigdheidService _benodigdheidService;
-        //public BenodigdheidRepo _benodigdheidRepo;
 
-        public BenodigdheidController(BenodigdheidService benodigdheidService /*BenodigdheidRepo benodigdheidRepo*/)
+
+        public BenodigdheidController(BenodigdheidService benodigdheidService)
         {
             _benodigdheidService = benodigdheidService;
-            //_benodigdheidRepo = benodigdheidRepo;
         }
+
         // GET: BenodigdheidController
         public ActionResult Index()
         {
@@ -64,7 +64,7 @@ namespace HeerlijkeHerinneringen.Controllers
 
             // Voeg de nieuwe benodigheid toe aan de service/data
             _benodigdheidService.Add(benodigdheid);
-           
+
             return RedirectToAction("Index");
         }
 
