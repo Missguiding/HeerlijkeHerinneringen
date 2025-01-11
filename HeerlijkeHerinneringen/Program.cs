@@ -17,6 +17,7 @@ builder.Services.AddScoped<IRepository<Benodigdheid>, BasisRepo<Benodigdheid>>()
 builder.Services.AddScoped<IRepository<Ingredient>, BasisRepo<Ingredient>>();
 builder.Services.AddScoped<IRepository<Afbeelding>, BasisRepo<Afbeelding>>();
 builder.Services.AddScoped<IRepository<MenuGang>, BasisRepo<MenuGang>>();
+builder.Services.AddScoped<IRepository<ReceptStap>, BasisRepo<ReceptStap>>();
 //builder.Services.AddScoped<AfbeeldingRepository>();
 
 builder.Services.AddScoped<ReceptService>();
@@ -25,6 +26,7 @@ builder.Services.AddScoped<BenodigdheidService>();
 builder.Services.AddScoped<IngredientService>();
 builder.Services.AddScoped<AfbeeldingService>();
 builder.Services.AddScoped<MenuGangService>();
+builder.Services.AddScoped<ReceptStapService>();
 
 
 #endregion

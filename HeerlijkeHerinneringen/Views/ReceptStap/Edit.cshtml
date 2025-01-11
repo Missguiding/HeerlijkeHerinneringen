@@ -1,0 +1,17 @@
+﻿@model HeerlijkeHerinneringen.Libraries.ViewModels.ReceptStapViewModel
+
+<h1>Wijzig de beschrijving</h1>
+
+<form asp-action="Edit">
+    <div class="form-group">
+        <label asp-for="Beschrijving"></label>
+        <input asp-for="Beschrijving" class="form-control" />
+        <span asp-validation-for="Beschrijving" class="text-danger"></span>
+    </div>
+
+
+
+    <input type="hidden" asp-for="Id" />
+    <br />
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>

@@ -1,0 +1,54 @@
+﻿@model HeerlijkeHerinneringen.Libraries.ViewModels.ReceptStapViewModel
+@{
+    ViewData["Title"] = "Details";
+}
+@* Head blok voor eventuele style sheets *@
+<head>
+
+</head>
+
+@* Titel info *@
+<div style="text-align: center;">
+    <h1>Stappen detail pagina</h1>
+    <br />
+    <h6>Check de details </h6>
+</div>
+
+
+
+<tbody>
+    @* Klant details *@
+
+    <div style=" float: left; width: 65%">
+
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Volgorde)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Volgorde)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Beschrijving)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Beschrijving)
+            </dd>
+
+           
+            
+        </dl>
+
+</tbody>
+
+@* Knop ga terug naar index *@
+
+<a class="btn btn-primary" asp-action="Index"></i>Back</a>
+@* Knop delete klant *@
+
+<a class="btn btn-warning" asp-controller="ReceptStap" asp-action="Delete" asp-route-id="@Model.Id">
+    Delete
+</a>
+
+
+

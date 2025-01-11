@@ -76,7 +76,10 @@ namespace HeerlijkeHerinneringen.Libraries.Profiles
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.ReceptStapId))
                .ForMember(dest => dest.Volgorde, opt => opt.MapFrom(src => src.Volgorde))
                .ForMember(dest => dest.Beschrijving, opt => opt.MapFrom(src => src.Beschrijving));
-            CreateMap<ReceptStapViewModel, ReceptStap>();
+            CreateMap<ReceptStapViewModel, ReceptStap>()
+                .ForMember(dest => dest.ReceptStapId, opt => opt.MapFrom(src => src.Id))
+               .ForMember(dest => dest.Volgorde, opt => opt.MapFrom(src => src.Volgorde))
+               .ForMember(dest => dest.Beschrijving, opt => opt.MapFrom(src => src.Beschrijving));
 
 
             //AutoMapper haalt de juiste eigenschappen van recept op.
