@@ -21,11 +21,11 @@ namespace HeerlijkeHerinneringen.Libraries.Profiles
                 .ForMember(dest => dest.AfbeeldingNaam, opt => opt.MapFrom(src => src.AfbeeldingNaam))
                 .ForMember(dest => dest.AfbeeldingUrl, opt => opt.MapFrom(src => src.AfbeeldingUrl))
                 .ForMember(dest => dest.ReceptId, opt => opt.MapFrom(src => src.ReceptId));
-            CreateMap<AfbeeldingViewModel, Afbeelding>();
-            // .ForMember(dest => dest.AfbeeldingId, opt => opt.MapFrom(src => src.AfbeeldingId))
-            // .ForMember(dest => dest.AfbeeldingNaam, opt => opt.MapFrom(src => src.AfbeeldingNaam))
-            //.ForMember(dest => dest.AfbeeldingUrl, opt => opt.MapFrom(src => src.AfbeeldingUrl))
-            //.ForMember(dest => dest.ReceptId, opt => opt.MapFrom(src => src.ReceptId));
+            CreateMap<AfbeeldingViewModel, Afbeelding>()
+             .ForMember(dest => dest.AfbeeldingId, opt => opt.MapFrom(src => src.AfbeeldingId))
+             .ForMember(dest => dest.AfbeeldingNaam, opt => opt.MapFrom(src => src.AfbeeldingNaam))
+            .ForMember(dest => dest.AfbeeldingUrl, opt => opt.MapFrom(src => src.AfbeeldingUrl))
+            .ForMember(dest => dest.ReceptId, opt => opt.MapFrom(src => src.ReceptId));
 
             CreateMap<Benodigdheid, BenodigdheidViewModel>()
                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.BenodigdheidId))
