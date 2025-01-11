@@ -38,7 +38,7 @@ namespace HeerlijkeHerinneringen.Libraries.Profiles
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.ChefId))
                 .ForMember(dest => dest.VoorNaam, opt => opt.MapFrom(src => src.ChefVoorNaam))
                 .ForMember(dest => dest.FamilieNaam, opt => opt.MapFrom(src => src.ChefFamilieNaam));
-            CreateMap<ChefViewModel, Chef >()
+            CreateMap<ChefViewModel, Chef>()
                 .ForMember(dest => dest.ChefId, opt => opt.MapFrom(src => src.Id))
                .ForMember(dest => dest.ChefVoorNaam, opt => opt.MapFrom(src => src.VoorNaam))
                 .ForMember(dest => dest.ChefFamilieNaam, opt => opt.MapFrom(src => src.FamilieNaam));
@@ -90,7 +90,7 @@ namespace HeerlijkeHerinneringen.Libraries.Profiles
     .ForMember(dest => dest.MenuGang, opt => opt.MapFrom(src => src.MenuGang.MenuGangName))
     .ForMember(dest => dest.Temperatuur, opt => opt.MapFrom(src => src.Temperatuur.TemperatuurName))
     .ForMember(dest => dest.TypeGerecht, opt => opt.MapFrom(src => src.TypeGerecht.TypeGerechtName))
-    .ForMember(dest => dest.Titel, opt => opt.MapFrom(src => src.Titel))  
+    .ForMember(dest => dest.Titel, opt => opt.MapFrom(src => src.Titel))
     .ForMember(dest => dest.Afbeeldingen, opt => opt.MapFrom(src => src.Afbeeldingen))
     .ForMember(dest => dest.ReceptStaps, opt => opt.MapFrom(src => src.ReceptStaps))
     .ForMember(dest => dest.ReceptIngredients, opt => opt.MapFrom(src => src.ReceptIngredients))
@@ -114,7 +114,9 @@ namespace HeerlijkeHerinneringen.Libraries.Profiles
             CreateMap<Temperatuur, TemperatuurViewModel>()
                 .ForMember(dest => dest.TemperatuurId, opt => opt.MapFrom(src => src.TemperatuurId))
                .ForMember(dest => dest.TemperatuurName, opt => opt.MapFrom(src => src.TemperatuurName));
-            CreateMap<TemperatuurViewModel, Temperatuur>();
+            CreateMap<TemperatuurViewModel, Temperatuur>()
+                .ForMember(dest => dest.TemperatuurId, opt => opt.MapFrom(src => src.TemperatuurId))
+               .ForMember(dest => dest.TemperatuurName, opt => opt.MapFrom(src => src.TemperatuurName));
 
             CreateMap<TypeGerecht, TypeGerechtViewModel>();
             CreateMap<TypeGerechtViewModel, TypeGerecht>();
